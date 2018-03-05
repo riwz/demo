@@ -1,0 +1,1 @@
+INSERT INTO person VALUES ('a41b7d0a-20bb-11e5-9c4d-8fc30782aa86','George', 'Franklin', '110 W. Liberty St.', 'Madison', '6085551023');
