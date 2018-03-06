@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 class PersonController {
 
-    private static final String VIEWS_PERSON_CREATE_OR_UPDATE_FORM = "persons/createOrUpdatePersonForm";
+    //private static final String VIEWS_PERSON_CREATE_OR_UPDATE_FORM = "persons/createOrUpdatePersonForm";
 
     @Autowired
     public PersonRepository persons;
@@ -30,18 +30,18 @@ class PersonController {
         dataBinder.setDisallowedFields("id");
     }
 
-    @RequestMapping(value = "/persons/new", method = RequestMethod.GET)
-    public String initCreationForm(Map<String, Object> entity) {
-        Person person = new Person();
-        entity.put("person", person);
-        return VIEWS_PERSON_CREATE_OR_UPDATE_FORM;
-    }
+//    @RequestMapping(value = "/persons/new", method = RequestMethod.GET)
+//    public String initCreationForm(Map<String, Object> entity) {
+//        Person person = new Person();
+//        entity.put("person", person);
+//        return VIEWS_PERSON_CREATE_OR_UPDATE_FORM;
+//    }
 
-    @RequestMapping(value = "/persons/new", method = RequestMethod.POST)
-    public String processCreationForm(@Valid Person person) {
-        this.persons.save(person);
-        return "redirect:/persons/" + person.getId();
-    }
+//    @RequestMapping(value = "/persons/new", method = RequestMethod.POST)
+//    public String processCreationForm(@Valid Person person) {
+//        this.persons.save(person);
+//        return "redirect:/persons/" + person.getId();
+//    }
 
     @GetMapping("/persons/find")
     public String initFindForm(Map<String, Object> model) {
@@ -69,24 +69,24 @@ class PersonController {
         }
     }
 
-    @RequestMapping(value = "/persons/{personId}/edit", method = RequestMethod.GET)
-    public String initUpdatePersonForm(@PathVariable("personId") UUID personId, Model entity) {
-        Person person = this.persons.findById(personId);
-        entity.addAttribute(person);
-        return VIEWS_PERSON_CREATE_OR_UPDATE_FORM;
-    }
+//    @RequestMapping(value = "/persons/{personId}/edit", method = RequestMethod.GET)
+//    public String initUpdatePersonForm(@PathVariable("personId") UUID personId, Model entity) {
+//        Person person = this.persons.findById(personId);
+//        entity.addAttribute(person);
+//        return VIEWS_PERSON_CREATE_OR_UPDATE_FORM;
+//    }
 
-    @RequestMapping(value = "/persons/{personId}/edit", method = RequestMethod.POST)
-    public String processUpdatePersonForm(@Valid Person person, BindingResult result, @PathVariable("personId") UUID personId) {
-        person.setId(personId);
-        this.persons.save(person);
-        return "redirect:/persons/{personId}";
-    }
+//    @RequestMapping(value = "/persons/{personId}/edit", method = RequestMethod.POST)
+//    public String processUpdatePersonForm(@Valid Person person, BindingResult result, @PathVariable("personId") UUID personId) {
+//        person.setId(personId);
+//        this.persons.save(person);
+//        return "redirect:/persons/{personId}";
+//    }
 
-    @RequestMapping("/persons/{personId}")
-    public ModelAndView showPerson(@PathVariable("personId") UUID personId) {
-        ModelAndView mav = new ModelAndView("persons/personDetails");
-        mav.addObject(this.persons.findById(personId));
-        return mav;
-    }
+//    @RequestMapping("/persons/{personId}")
+//    public ModelAndView showPerson(@PathVariable("personId") UUID personId) {
+//        ModelAndView mav = new ModelAndView("persons/personDetails");
+//        mav.addObject(this.persons.findById(personId));
+//        return mav;
+//    }
 }
