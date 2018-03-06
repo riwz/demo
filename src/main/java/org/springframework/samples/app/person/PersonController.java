@@ -43,11 +43,11 @@ class PersonController {
 //        return "redirect:/persons/" + person.getId();
 //    }
 
-    @GetMapping("/persons/find")
-    public String initFindForm(Map<String, Object> model) {
-        model.put("person", new Person());
-        return "persons/findPersons";
-    }
+//    @GetMapping("/persons/find")
+//    public String initFindForm(Map<String, Object> model) {
+//        model.put("person", new Person());
+//        return "persons/findPersons";
+//    }
 
     @GetMapping("/persons")
     public String processFindForm(Person person, Map<String, Object> model, BindingResult result) {
@@ -56,17 +56,21 @@ class PersonController {
 //        }
         Collection<Person> results = this.persons.findByLastName(person.getLastName());
 
-        if (results.isEmpty()) {
+        //while (results.isEmpty()) {
             result.rejectValue("lastName", "notFound", "not found");
+
+        model.put("selections", results);
             return "persons/findPersons";
-        } else
-            if (results.size() == 1) {
-            person = results.iterator().next();
-            return "redirect:/persons/" + person.getId();
-        } else {
-            model.put("selections", results);
-            return "persons/personsList";
-        }
+
+        //}
+//        else
+//            if (results.size() == 1) {
+//            person = results.iterator().next();
+//            return "redirect:/persons/" + person.getId();
+//        } else {
+            //model.put("selections", results);
+            //return "persons/personsList";
+//        }
     }
 
 //    @RequestMapping(value = "/persons/{personId}/edit", method = RequestMethod.GET)
