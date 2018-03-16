@@ -1,10 +1,9 @@
-package org.springframework.samples.app.person;
+package org.spring.app.person;
 
 import java.util.Collection;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;

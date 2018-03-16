@@ -1,4 +1,4 @@
-package org.springframework.samples.app.entity;
+package org.spring.app.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 

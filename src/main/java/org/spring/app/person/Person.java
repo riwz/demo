@@ -1,9 +1,9 @@
-package org.springframework.samples.app.person;
+package org.spring.app.person;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import org.springframework.samples.app.entity.StandardEntity;
+import org.spring.app.entity.StandardEntity;
 
 @Table
 @Entity

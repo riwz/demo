@@ -1,34 +1,23 @@
-package org.springframework.samples.app.person;
+package org.spring.app.person;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
-import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.app.person.Person;
-import org.springframework.samples.app.person.PersonRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 class PersonController {
 
     //private static final String VIEWS_PERSON_CREATE_OR_UPDATE_FORM = "persons/createOrUpdatePersonForm";
 
-    @Autowired
-    public PersonRepository persons;
-
-    @InitBinder
-    public void setAllowedFields(WebDataBinder dataBinder) {
-        dataBinder.setDisallowedFields("id");
-    }
+//    @Autowired
+//    public PersonRepository persons;
+//
+//    @InitBinder
+//    public void setAllowedFields(WebDataBinder dataBinder) {
+//        dataBinder.setDisallowedFields("id");
+//    }
 
 //    @RequestMapping(value = "/persons/new", method = RequestMethod.GET)
 //    public String initCreationForm(Map<String, Object> entity) {
@@ -54,13 +43,13 @@ class PersonController {
 //        if (person.getLastName() == null) {
 //            person.setLastName("");
 //        }
-        Collection<Person> results = this.persons.findByLastName(person.getLastName());
+        //Collection<Person> results = this.persons.findByLastName(person.getLastName());
 
         //while (results.isEmpty()) {
-            result.rejectValue("lastName", "notFound", "not found");
-
-        model.put("selections", results);
-            return "persons/findPersons";
+//            result.rejectValue("lastName", "notFound", "not found");
+//
+//        model.put("selections", results);
+//            return "persons/findPersons";
 
         //}
 //        else
@@ -69,7 +58,7 @@ class PersonController {
 //            return "redirect:/persons/" + person.getId();
 //        } else {
             //model.put("selections", results);
-            //return "persons/personsList";
+            return "persons/personsList";
 //        }
     }
 
